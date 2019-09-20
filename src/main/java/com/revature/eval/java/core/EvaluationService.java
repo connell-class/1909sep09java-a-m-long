@@ -1,10 +1,15 @@
 package com.revature.eval.java.core;
 
 import java.time.temporal.Temporal;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class EvaluationService {
+
+	public EvaluationService(Map<Integer, Integer> integer, Map<String, String> hashmap) {
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * 1. Without using the StringBuilder or StringBuffer class, write a method that
@@ -15,7 +20,7 @@ public class EvaluationService {
 	 */
 	public String reverse(String string) {
 		char[] reversed = new char[string.length()];
-		for (int i = reversed.length - 1, j=0; i >= 0; i--, j++) {
+		for (int i = reversed.length - 1, j = 0; i >= 0; i--, j++) {
 			reversed[j] = string.charAt(i);
 		}
 		return new String(reversed);
@@ -31,7 +36,27 @@ public class EvaluationService {
 	 */
 	public String acronym(String phrase) {
 		// TODO Write an implementation for this method declaration
-		return null;
+
+		String a = phrase.substring(0, 1);
+		// zero means the first spot of the string
+		// one is like telling the program "to the end of the first string"(zero being
+		// the first)
+
+		char b;
+		for (int i = 0; i < phrase.length(); i++) {
+
+			b = phrase.charAt(i);
+
+			if (b == ' ' || b == '-') {
+
+				// if there is a space ore if there is a dash then....
+				a = a + Character.toString(phrase.charAt(i + 1));
+
+			}
+
+		}
+
+		return a;
 	}
 
 	/**
@@ -85,16 +110,32 @@ public class EvaluationService {
 
 		public boolean isEquilateral() {
 			// TODO Write an implementation for this method declaration
-			return false;
+
+			if (sideOne == sideTwo & sideOne == sideThree) {
+
+			}
+			return true;
+
 		}
 
 		public boolean isIsosceles() {
 			// TODO Write an implementation for this method declaration
+
+			if (sideOne == sideTwo & sideOne != sideThree) {
+
+			}
+
 			return false;
+
 		}
 
 		public boolean isScalene() {
 			// TODO Write an implementation for this method declaration
+
+			if (sideOne != sideTwo & sideOne != sideThree & sideTwo != sideThree) {
+
+			}
+
 			return false;
 		}
 
@@ -104,7 +145,7 @@ public class EvaluationService {
 	 * 4. Given a word, compute the scrabble score for that word.
 	 * 
 	 * --Letter Values-- Letter Value A, E, I, O, U, L, N, R, S, T = 1; D, G = 2; B,
-	 * C, M, P = 3; F, H, V, W, Y = 4; K = 5; J, X = 8; Q, Z = 10; Examples
+	 * C, M, P = 3; F, H, V, W, Y = 4; K = 5; J, X = 8; Q, Z = 10; Examplesu
 	 * "cabbage" should be scored as worth 14 points:
 	 * 
 	 * 3 points for C, 1 point for A, twice 3 points for B, twice 2 points for G, 1
@@ -117,7 +158,70 @@ public class EvaluationService {
 	 */
 	public int getScrabbleScore(String string) {
 		// TODO Write an implementation for this method declaration
-		return 0;
+
+		String abcs = "abcdefghijklmnopqrstuvwxyz";
+
+		char[] alphabet = abcs.toCharArray();
+
+		int getScrabbleScore = 0;
+		// int must be initialized
+
+		char letter = 0;
+
+		// letter must be initialized
+
+		for (int i = 0; i < string.length(); i++) {
+
+			letter = string.charAt(i);
+
+			if (letter == alphabet[0] || letter == alphabet[4] || letter == alphabet[8] || letter == alphabet[14]
+					|| letter == alphabet[20] || letter == alphabet[11] || letter == alphabet[14]
+					|| letter == alphabet[17] || letter == alphabet[18] || letter == alphabet[19]) {
+
+				getScrabbleScore += 1;
+
+			}
+
+			if (letter == alphabet[3] || letter == alphabet[6]) {
+
+				getScrabbleScore += 2;
+
+			}
+
+			if (letter == alphabet[1] || letter == alphabet[2] || letter == alphabet[12] || letter == alphabet[15]) {
+
+				getScrabbleScore += 3;
+
+			}
+
+			if (letter == alphabet[5] || letter == alphabet[7] || letter == alphabet[21] || letter == alphabet[22]
+					|| letter == alphabet[24]) {
+
+				getScrabbleScore += 4;
+
+			}
+
+			if (letter == alphabet[10]) {
+
+				getScrabbleScore += 5;
+
+			}
+
+			if (letter == alphabet[9] || letter == alphabet[23]) {
+
+				getScrabbleScore += 8;
+
+			}
+
+			if (letter == alphabet[16] || letter == alphabet[25]) {
+
+				getScrabbleScore += 10;
+
+			}
+
+		}
+
+		return getScrabbleScore;
 	}
 
 	/**
@@ -153,7 +257,32 @@ public class EvaluationService {
 	 */
 	public String cleanPhoneNumber(String string) {
 		// TODO Write an implementation for this method declaration
-		return null;
+
+		string = string.replaceAll("[^\\d.]", "");
+
+		char[] end = new char[10];
+
+		end = string.toCharArray();
+
+		for (int i = 0; i < string.length(); i++) {
+
+			char goal = string.charAt(i);
+
+			if (goal == ' ' || goal == '.') {
+
+				string = goal + Character.toString(string.charAt(i + 1));
+
+				if (goal > end.length) {
+
+					goal = string.charAt(1);
+
+				}
+
+			}
+
+		}
+
+		return string;
 	}
 
 	/**
@@ -167,7 +296,24 @@ public class EvaluationService {
 	 */
 	public Map<String, Integer> wordCount(String string) {
 		// TODO Write an implementation for this method declaration
-		return null;
+
+		Map<String, Integer> map = new HashMap<>();
+
+		String[] words = string.split("\\s*(=>|,|\\s)\\s*");
+		// splits at spaces and commas
+
+		for (int i = 0; i < words.length; i++) {
+			String phrase = words[i];
+
+			int wordCount = map.getOrDefault(phrase, 0);
+			// returns the value to which the specified key is mapped
+
+			map.put(phrase, ++wordCount);
+
+		}
+
+		return map;
+
 	}
 
 	/**
@@ -210,6 +356,7 @@ public class EvaluationService {
 
 		public int indexOf(T t) {
 			// TODO Write an implementation for this method declaration
+
 			return 0;
 		}
 
@@ -225,7 +372,6 @@ public class EvaluationService {
 		public void setSortedList(List<T> sortedList) {
 			this.sortedList = sortedList;
 		}
-
 	}
 
 	/**
@@ -245,10 +391,56 @@ public class EvaluationService {
 	 * @param string
 	 * @return
 	 */
-	public String toPigLatin(String string) {
+	public Object toPigLatin(String string) {
 		// TODO Write an implementation for this method declaration
-		return null;
-	}
+
+		String phrase = string;
+		String[] possiblity = string.split(" "); 
+		String v = "aeiou"; 
+		char[] vowel = v.toCharArray();
+		CharSequence th ="th";
+		CharSequence ch = "ch";
+		CharSequence qu = "qu";
+		CharSequence sch = "sch";
+
+		
+		for (int i=0; i< possiblity.length; i++) {
+
+			for ( int j=0; j<vowel.length; j++) {
+			
+			String first = possiblity[i];
+			char[] prettyBad = first.toCharArray();
+			string = possiblity[i].substring(1)
+					+ possiblity[i].subSequence(0,1)+ "ay";
+
+			
+			if  (prettyBad[0]== vowel[j]) {
+				string = possiblity[i] + "ay";
+				break;
+				}
+			      
+			
+			if (possiblity[i].contains(th) || possiblity[i].contains(qu)  ) {
+
+							string = possiblity[i].substring(2)
+						+ possiblity[i].subSequence(0, 2)+ "ay";
+							break;					
+						}
+				
+			if (possiblity[i].contains(sch)) {
+					string = possiblity[i].substring(3)
+							+ possiblity[i].subSequence(0, 3)+ "ay";		
+								System.out.println(string);
+								break;
+				}
+
+			}	
+			
+			System.out.println(string);
+			
+			}
+		return string;
+}
 
 	/**
 	 * 9. An Armstrong number is a number that is the sum of its own digits each
@@ -267,7 +459,42 @@ public class EvaluationService {
 	 */
 	public boolean isArmstrongNumber(int input) {
 		// TODO Write an implementation for this method declaration
-		return false;
+
+		 int num = input;
+		   int number, temp, total = 0;
+		   number = num;
+		   boolean armstrong = false;
+//		   System.out.println("is this thing working?");
+
+		   String ummm = Integer.toString(num);
+
+	        
+	        char[] goal = ummm.toCharArray();
+	        int nope = goal.length;        	
+//	        System.out.println(nope);
+	        
+	        while (number != 0)
+	        {
+	        	
+//	        	 int firstDigit = Integer.parseInt(Integer.toString(number).substring(0,1));
+	        	 
+	        	 temp = number % 10;
+	            
+	            total = (int) (total + Math.pow(temp, nope));
+	            //Math.p
+	            
+	            number /= 10;
+	        }
+
+	        if(total == num) {
+	        armstrong= true;
+//	        System.out.println(armstrong);
+	        }
+	        else {
+	        armstrong = false;
+//	        System.out.println(armstrong);
+	        }
+	        return armstrong;
 	}
 
 	/**
@@ -282,7 +509,36 @@ public class EvaluationService {
 	 */
 	public List<Long> calculatePrimeFactorsOf(long l) {
 		// TODO Write an implementation for this method declaration
-		return null;
+		int m = 0;
+		int flag = 0;
+		boolean solution;
+
+		m = (int) (l / 2);
+
+		if (l == 0 || l == 1) {
+
+//			System.out.println(l + " is not prime number");
+			solution = false;
+		} else {
+
+			for (int i = 2; i <= m; i++) {
+
+				if (l % i == 0) {
+
+//					System.out.println(l + " is not prime number");
+					solution = false;
+
+					flag = 1;
+					break;
+				}
+			}
+			if (flag == 0) {
+//				System.out.println(l + " is prime number");
+			}
+			solution = true;
+		} // end of else
+
+		return l;
 	}
 
 	/**
@@ -321,60 +577,66 @@ public class EvaluationService {
 
 		public String rotate(String string) {
 			// TODO Write an implementation for this method declaration
+			
+			
+			
+			
 			return null;
+
 		}
-
 	}
-
-	/**
-	 * 12. Given a number n, determine what the nth prime is.
-	 * 
-	 * By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see
-	 * that the 6th prime is 13.
-	 * 
-	 * If your language provides methods in the standard library to deal with prime
-	 * numbers, pretend they don't exist and implement them yourself.
-	 * 
-	 * @param i
-	 * @return
-	 */
-	public int calculateNthPrime(int i) {
-		// TODO Write an implementation for this method declaration
-		return 0;
-	}
-
-	/**
-	 * 13 & 14. Create an implementation of the atbash cipher, an ancient encryption
-	 * system created in the Middle East.
-	 * 
-	 * The Atbash cipher is a simple substitution cipher that relies on transposing
-	 * all the letters in the alphabet such that the resulting alphabet is
-	 * backwards. The first letter is replaced with the last letter, the second with
-	 * the second-last, and so on.
-	 * 
-	 * An Atbash cipher for the Latin alphabet would be as follows:
-	 * 
-	 * Plain: abcdefghijklmnopqrstuvwxyz Cipher: zyxwvutsrqponmlkjihgfedcba It is a
-	 * very weak cipher because it only has one possible key, and it is a simple
-	 * monoalphabetic substitution cipher. However, this may not have been an issue
-	 * in the cipher's time.
-	 * 
-	 * Ciphertext is written out in groups of fixed length, the traditional group
-	 * size being 5 letters, and punctuation is excluded. This is to make it harder
-	 * to guess things based on word boundaries.
-	 * 
-	 * Examples Encoding test gives gvhg Decoding gvhg gives test Decoding gsvjf
-	 * rxpyi ldmul cqfnk hlevi gsvoz abwlt gives thequickbrownfoxjumpsoverthelazydog
-	 *
-	 */
-	static class AtbashCipher {
 
 		/**
-		 * Question 13
+		 * 12. Given a number n, determine what the nth prime is.
 		 * 
-		 * @param string
+		 * By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see
+		 * that the 6th prime is 13.
+		 * 
+		 * If your language provides methods in the standard library to deal with prime
+		 * numbers, pretend they don't exist and implement them yourself.
+		 * 
+		 * @param i
 		 * @return
 		 */
+		public int calculateNthPrime(int i) {
+			// TODO Write an implementation for this method declaration
+			return 0;
+		}
+
+		/**
+		 * 13 & 14. Create an implementation of the atbash cipher, an ancient encryption
+		 * system created in the Middle East.
+		 * 
+		 * The Atbash cipher is a simple substitution cipher that relies on transposing
+		 * all the letters in the alphabet such that the resulting alphabet is
+		 * backwards. The first letter is replaced with the last letter, the second with
+		 * the second-last, and so on.
+		 * 
+		 * An Atbash cipher for the Latin alphabet would be as follows:
+		 * 
+		 * Plain: abcdefghijklmnopqrstuvwxyz Cipher: zyxwvutsrqponmlkjihgfedcba It is a
+		 * very weak cipher because it only has one possible key, and it is a simple
+		 * monoalphabetic substitution cipher. However, this may not have been an issue
+		 * in the cipher's time.
+		 * 
+		 * Ciphertext is written out in groups of fixed length, the traditional group
+		 * size being 5 letters, and punctuation is excluded. This is to make it harder
+		 * to guess things based on word boundaries.
+		 * 
+		 * Examples Encoding test gives gvhg Decoding gvhg gives test Decoding gsvjf
+		 * rxpyi ldmul cqfnk hlevi gsvoz abwlt gives thequickbrownfoxjumpsoverthelazydog
+		 *
+		 */
+		static class AtbashCipher {
+
+			/**
+			 * Question 13
+			 * 
+			 * @param string
+			 * @return
+			 */
+		
+
 		public static String encode(String string) {
 			// TODO Write an implementation for this method declaration
 			return null;
@@ -538,6 +800,7 @@ public class EvaluationService {
 	 */
 	public int solveWordProblem(String string) {
 		// TODO Write an implementation for this method declaration
+
 		return 0;
 	}
 

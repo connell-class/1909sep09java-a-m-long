@@ -19,9 +19,11 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import com.revature.eval.java.core.EvaluationService.BinarySearch;
+
 public class EvaluationServiceTest {
 
-	private static final EvaluationService evaluationService = new EvaluationService();
+	private static final EvaluationService evaluationService = new EvaluationService(null, null);
 
 	@Rule
 	public ExpectedException expectedException = ExpectedException.none();
@@ -328,7 +330,7 @@ public class EvaluationServiceTest {
 	}
 
 	/*******************************************************************
-	 * Question 9
+	 * Question
 	 ******************************************************************/
 	@Test
 	public void singleDigitsAreArmstrongNumbers() {
@@ -340,10 +342,10 @@ public class EvaluationServiceTest {
 	@Test
 	public void noTwoDigitArmstrongNumbers() {
 		int input = 10;
-
-		assertFalse(evaluationService.isArmstrongNumber(input));
+ 
+		assertFalse( evaluationService.isArmstrongNumber(input));
 	}
-
+ 
 	@Test
 	public void threeDigitNumberIsArmstrongNumber() {
 		int input = 153;
