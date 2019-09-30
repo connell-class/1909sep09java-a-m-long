@@ -15,8 +15,8 @@ public class EvaluationService {
 
 	public EvaluationService(Map<Integer, Integer> integer, Map<String, String> hashmap) {
 		// TODO Auto-generated constructor stub
+	
 	}
-
 	/**
 	 * 1. Without using the StringBuilder or StringBuffer class, write a method that
 	 * reverses a String. Example: reverse("example"); -> "elpmaxe"
@@ -568,7 +568,10 @@ public class EvaluationService {
 			}
 			solution = true;
 
+//		return null;
+	}
 		return null;
+
 	}
 
 	/**
@@ -625,15 +628,16 @@ public class EvaluationService {
 //					
 //				}
 			}
-			
-			
-			
+//			
+////			
+//			
 			return string;
 
 		
-	}
-	}
-	}
+		}
+		 }
+//	
+	
 
 		/**
 		 * 12. Given a number n, determine what the nth prime is.
@@ -775,8 +779,8 @@ public class EvaluationService {
 
 		   		 return happy;
 		   	 }
-		    }
-
+		    
+		 }
 		 
 		
 	/**
@@ -834,7 +838,6 @@ char[] pants = string.toUpperCase().toCharArray();
 			if((man.charAt(k) == ('X'))){
 				num = num + (10 * counter);
 				counter--;
-				//if the string only contains X's, this is it
 			
 			}if(!Character.isDigit(man.charAt(k))){
 				return false;
@@ -852,7 +855,7 @@ char[] pants = string.toUpperCase().toCharArray();
 			return false;
 	}
 		
-	
+		 
 	/**
 	 * 16. Determine if a sentence is a pangram. A pangram (Greek: παν γράμμα, pan
 	 * gramma, "every letter") is a sentence using every letter of the alphabet at
@@ -1031,8 +1034,7 @@ for(int j=0; j<string.length(); j++) {
 			
 			if(count % 2 == 0) {
 				
-				
-				
+						
 				everything += Integer.parseInt(Character.toString(apples));
 				//returns int
 				
@@ -1112,5 +1114,9 @@ for(int j=0; j<string.length(); j++) {
 
 }
 	
-	}
+	
+		 
+}
+		 
+
 
