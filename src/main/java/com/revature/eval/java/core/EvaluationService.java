@@ -364,22 +364,30 @@ public class EvaluationService {
 			// TODO Write an implementation for this method declaration
 			
 				
-			int last = (sortedList.size()-1);
+			//last is the entire list and first is the beginning of the list
+			
+			
+			int toend = (sortedList.size()-1);
 			//to get the entire size starting from the index of 0
 			int first = 0;
+			//initialize the beginning of the list
 			
 			int result = Integer.parseInt(t.toString());
-			//taking the argument input into an integer
-			while (first <= last) {
-			int mid = ((first + last)/2);
-			//halving the list
-			int x = Integer.parseInt(sortedList.get(mid).toString());
 			
-			if(x > result) {
-			last = mid -1;
-			//want to look for where mid was at the moment and do the same thing as the beginning
+			
+			//taking the argument input into an integer
+			while (first <= toend) {
+						
+			
+			int mid = toend/2;
+			//halving the list
+			int cut = Integer.parseInt(sortedList.get(mid).toString());
+			
+			if(cut > result) {
+			toend = mid -1;
+			//want to look for where mid was at the moment and go left
 				}
-				else if (x < result) {
+				else if (cut < result) {
 					first = mid + 1;
 					//read from the other end of the middle
 				}
