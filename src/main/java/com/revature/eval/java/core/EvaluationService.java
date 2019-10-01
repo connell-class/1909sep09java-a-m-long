@@ -612,6 +612,11 @@ public class EvaluationService {
 		   	 private int key;
 
 		   	 
+		public RotationalCipher(int i) {
+				// TODO Auto-generated constructor stub
+			}
+
+
 		public String rotate(String string) {
 			// TODO Write an implementation for this method declaration
 
