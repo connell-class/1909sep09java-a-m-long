@@ -670,19 +670,18 @@ public class EvaluationService {
 		    int number = 1; 
 		    int count = 0;
 		    
-		    while (count<i) {
+while(count<i) {
 		    	number = number+1; 
 		    	for(int j=2; j<=number; j++) {
 		    		if(number % j==0) {
-		    			break;
-		    		}
+		    		
 
 		if (j==number ) {
 			count = count+1;
+			break;
 		}
-		System.out.println(number);
 		}
-		    	System.out.println(number);
+		}
 		    }
 			  return number;
 
