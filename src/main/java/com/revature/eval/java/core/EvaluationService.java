@@ -359,60 +359,63 @@ public class EvaluationService {
 	 */
 	static class BinarySearch<T> {
 		private List<T> sortedList;
-
-		public int indexOf(T t) {
-			// TODO Write an implementation for this method declaration
-			
-				
-			//last is the entire list and first is the beginning of the list
-			
-			
-			int toend = (sortedList.size()-1);
-			//to get the entire size starting from the index of 0
-			int first = 0;
-			//initialize the beginning of the list
-			
-			int result = Integer.parseInt(t.toString());
-			
-			
-			//taking the argument input into an integer
-			while (first <= toend) {
-						
-			
-			int mid = toend/2;
-			//halving the list
-			int cut = Integer.parseInt(sortedList.get(mid).toString());
-			
-			if(cut > result) {
-			toend = mid -1;
-			//want to look for where mid was at the moment and go left
-				}
-				else if (cut < result) {
-					first = mid + 1;
-					//read from the other end of the middle
-				}
-					else
-						return mid;
-						
-			}
-			return -1;
-			//number doesn't exist in the array list
-		}
-
-		public BinarySearch(List<T> sortedList) {
-			super();
-			this.sortedList = sortedList;
-		}
-
-		public List<T> getSortedList() {
-			return sortedList;
-		}
-
-		public void setSortedList(List<T> sortedList) {
-			this.sortedList = sortedList;
-		}
-
 	}
+//		public int indexOf(T t) {
+//		
+//		
+//			// TODO Write an implementation for this method declaration
+//			
+//				
+//			//last is the entire list and first is the beginning of the list
+//			
+//			
+//			int toend = (sortedList.size()-1);
+//			//to get the entire size starting from the index of 0
+//			int first = 0;
+//			//initialize the beginning of the list
+//			
+//			int result = Integer.parseInt(t.toString());
+//			
+//			
+//			//taking the argument input into an integer
+//			while (first <= toend) {
+//						
+//			
+//			int mid = toend/2;
+//			//halving the list
+//			int cut = Integer.parseInt(sortedList.get(mid).toString());
+//			
+//			if(cut > result) {
+//			toend = mid -1;
+//			//want to look for where mid was at the moment and go left
+//				}
+//				else if (cut < result) {
+//					first = mid + 1;
+//					//read from the other end of the middle
+//				}
+//					else
+//						return mid;
+//						
+//			}
+//			return -1;
+//			//number doesn't exist in the array list
+//		}
+//
+//		public BinarySearch(List<T> sortedList) {
+//			super();
+//			this.sortedList = sortedList;
+//		}
+//
+//		public List<T> getSortedList() {
+//			return sortedList;
+//		}
+//
+//		public void setSortedList(List<T> sortedList) {
+//			this.sortedList = sortedList;
+//		}
+//	}
+	
+//	
 
 	/**
 	 * 8. Implement a program that translates from English to Pig Latin.
@@ -670,7 +673,7 @@ public class EvaluationService {
 		    int number = 1; 
 		    int count = 0;
 		    
-while(count<i) {
+if(count<i) {
 		    	number = number+1; 
 		    	for(int j=2; j<=number; j++) {
 		    		if(number % j==0) {
@@ -1128,7 +1131,9 @@ for(int j=0; j<string.length(); j++) {
 	
 	
 		 
-}
+
+		}
+	
 		 
 
 
